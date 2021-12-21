@@ -85,7 +85,7 @@ function quit(){
  *
  * @returns {void}
  */
- function hello(){
+ function help(){
   console.log('quit or exit,hello')
   process.exit();
 }
