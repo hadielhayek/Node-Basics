@@ -88,7 +88,7 @@ function quit(){
  * @returns {void}
  */
  function help(){
-  console.log('these are the commands:/n quit or exit,hello')
+  console.log('these are the commands:/n quit or exit,hello,\n hello:if you type hello alone it will give you hello once you add something with hello it will print it too!')
 }
 
 // The following line starts the application
