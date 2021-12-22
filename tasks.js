@@ -50,6 +50,10 @@ function onDataReceived(text) {
 
   else if(text==='remove')
   remove();
+  else if(text ==='remove 1')
+  remove1();
+  else if(text==='remove 2')
+  remove2()
   else if(text==='list')
   list();
   
@@ -108,11 +112,16 @@ function add(text) {
 }
 
 function remove(text){
-  if(text=="remove"){
-    console.log("what do you want to remove!")
+console.log(tasks.pop());
+}
+function remove1(text){
+  console.log(tasks.shift());
+  }
+  function remove2(text){
+    console.log(tasks.splice(1,1));
+    }
   
-}
-}
+
 function list() {
   if(tasks == null){
      console.log("enter some tasks");
