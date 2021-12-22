@@ -34,12 +34,15 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n' || text ==='exit\n') {
+  text=text.trim();
+  if (text === 'quit' || text ==='exit') {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
-  }
+  else if(text.split(" ").shift()=== 'hello')
+    hello(text);
+  else if(text==='help')
+  help();
+  
   else{
     unknownCommand(text);
   }
@@ -63,12 +66,10 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(text){
+  console.log(text +'!')
 }
-function help(){
-  console.log('')
-}
+
 
 
 
@@ -88,7 +89,6 @@ function quit(){
  */
  function help(){
   console.log('these are the commands:/n quit or exit,hello')
-  process.exit();
 }
 
 // The following line starts the application
