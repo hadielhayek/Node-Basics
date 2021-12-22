@@ -99,7 +99,7 @@ function quit(){
  * @returns {void}
  */
  function help(){
-  console.log('these are the commands:/n quit or exit,hello,\n hello:if you type hello alone it will give you hello once you add something with hello it will print it too!')
+  console.log('these are the commands:/n \nquit or exit,\nadd,\nremove,\nlist,\nhello,\n hello:if you type hello alone it will give you hello once you add something with hello it will print it too!')
 }
 function add(text) {
   if (text == "add") {
