@@ -18,6 +18,7 @@ function startApp(name){
 }
 
 
+var tasks = [{task:"review js"},{task:"review css"}];
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -35,13 +36,22 @@ function startApp(name){
  */
 function onDataReceived(text) {
   text=text.trim();
-  if (text === 'quit' || text ==='exit') {
+    if (text === 'quit' || text ==='exit') {
     quit();
   }
   else if(text.split(" ").shift()=== 'hello')
     hello(text);
+
   else if(text==='help')
   help();
+  
+  else if(text.split(" ").shift()==='add')
+  add(text);
+
+  else if(text==='remove')
+  remove();
+  else if(text==='list')
+  list();
   
   else{
     unknownCommand(text);
@@ -70,9 +80,6 @@ function hello(text){
   console.log(text +'!')
 }
 
-
-
-
 /**
  * Exits the application
  *
@@ -89,6 +96,29 @@ function quit(){
  */
  function help(){
   console.log('these are the commands:/n quit or exit,hello,\n hello:if you type hello alone it will give you hello once you add something with hello it will print it too!')
+}
+function add(text) {
+  if (text == "add") {
+    console.log("you should add task ");
+  } else {
+    task = text.substring(4);
+    tasks.push({ task: task })
+    console.log(task);
+  }
+}
+
+function remove(text){
+  if(text=="remove"){
+    console.log("what do you want to remove!")
+  
+}
+}
+function list() {
+  if(tasks == null){
+     console.log("enter some tasks");
+  }else{
+     console.table(tasks);
+  }
 }
 
 // The following line starts the application
