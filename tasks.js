@@ -18,7 +18,7 @@ function startApp(name){
 }
 
 
-var tasks = [{task:"review js"},{task:"review css"}];
+var tasks = ["review js","review css"];
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -41,13 +41,15 @@ function onDataReceived(text) {
   }
   else if(text.split(" ").shift()=== 'hello')
     hello(text);
-
+   else if(text.split(" ")==='edit')
+   edit(text)
   else if(text==='help')
   help();
-  
   else if(text.split(" ").shift()==='add')
   add(text);
-
+  else if (text.trim().split(" ")[0] === "edit") {
+    edit(text);
+  }
   else if(text==='remove')
   remove();
   else if(text ==='remove 1')
@@ -106,9 +108,25 @@ function add(text) {
     console.log("you should add task ");
   } else {
     task = text.substring(4);
-    tasks.push({ task: task })
-    console.log(task);
+    tasks.push(tasks)
+    console.log(tasks);
   }
+}
+function edit(text){
+  var part = text.split(" ").length;
+    if (part <1){
+      console.log("undefind");
+    }
+    else if (part >2){
+      var textnew = text.split(" ")[2];
+      var index = text.split(" ")[1] -1;
+      tasks.splice(index, 1, textnew);
+    }
+    else{
+      var textnew = text.split(" ")[1];
+      tasks.splice(task.length -1,1, textnew);
+    }
+    console.log(tasks);
 }
 
 function remove(text){
@@ -120,15 +138,16 @@ function remove1(text){
   function remove2(text){
     console.log(tasks.splice(1,1));
     }
-  
+
 
 function list() {
   if(tasks == null){
      console.log("enter some tasks");
   }else{
-     console.table(tasks);
+     console.log(tasks);
   }
 }
+
 
 // The following line starts the application
 startApp("Hadi Elhayek")
